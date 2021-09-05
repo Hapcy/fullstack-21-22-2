@@ -1,75 +1,93 @@
 Issue:
 {
   "issueId": 1,
-  "title": "Rossz projektor",
-  "description": "Lorem ipsum",
-  "place": 1,
-  "labels": [1, 2],
+  "title": "Cím",
+  "description": "Leírás",
+  "placeId": 1,
+  "labelIds": [1, 2],
   "status": "NEW",
-  "creator": "John Doe",
-  "creationDate": "2021-09-01T12:30:00"
+  "creatorId": 1,
+  "creationDate": "2021-09-01T12:31:43"
 }
 
-GET /issues - összes issue lekérdezése
+GET /issues - összes issue lekérdezés
   params:
-    status: string - Csak adott státuszú issuekat kapjunk vissza
+    status: string - Ilyen státuszú issuekat kapjak csak vissza
   returns:
-    200: Issue[] - az összes felhasználó által elérhető issue
-POST /issues - issue létrehozása
-  params:
-    Issue
-  returns:
-    200: Issue - a létrehozott issue
-GET /issues/:issueId - Egy konkrét issue lekérdezése
-  params:
-    issueId: number - a lekérdezendő issue azonosítója
-  returns:
-    200: Issue - A lekérdezett issue
-    404 - nincs ilyen issue
-    403 - nincs a felhasználónak joga az issuehoz
-PUT /issues/:issueId - Egy konkrét issue összes adatának megváltoztatása
-  params:
-    issueId: number - a lecserélendő issue azonosítója
-    Issue
-  returns:
-    200: Issue
-    404 - nincs ilyen issue
-    403 - nincs a felhasználónak joga az issuehoz vagy az issue módosításához
-PATCH /issues/:issueId - Egy konkrét issue megadott adatainak megváltoztatása
-  params:
-    issueId: number - a módosítandó issue azonosítója
-    Issue
-  returns:
-    200: Issue
-    404 - nincs ilyen issue
-    403 - nincs a felhasználónak joga az issuehoz vagy az issue módosításához
-DELETE /issues/:issueId - Egy konkrét issue törlése
-  params:
-    issueId: number - a törlendő issue azonosítója
-  returns:
-    404 - nincs ilyen issue
-    403 - nincs a felhasználónak joga az issuehoz vagy az issue törléséhez
+    200: Issue[] - A felhasználó által elérhető issuek
 
-Message:
+GET /issues/:issueId - egy konkrét issue lekérdezése
+  params:
+    issueId: number - Ezt a konkrét issue-t akarom lekérdezni
+  return:
+    200: Issue - A kért issue
+    404 - Nem létezik ez az issue
+
+POST /issues - egy új issue létrehozása
+  params:
+    Issue - A létrehozandó issue adatai
+  returns:
+    200: Issue - A létrehozott issue
+
+PATCH /issues/:issueId - issue módosítása a megadott adatokkal
+  params:
+    issueId: number - A módosítandó issue Id-ja
+    Issue - A módosítandó mezők és értékeik
+  returns:
+    200: Issue - A módosított issue
+    404 - Nem létezik a módosítandó issue
+    403 - Ezt az issuet nem módosíthatja az aktuális felhasználó
+
+PUT /issues/:issueId - issue lecserélése
+  params:
+    issueId: number - A módosítandó issue Id-ja
+    Issue - A cél issue
+  returns:
+    200: Issue - A módosított issue
+    404 - Nem létezik a módosítandó issue
+    403 - Ezt az issuet nem módosíthatja az aktuális felhasználó
+
+DELETE /issues/:issueId - issue törlése
+  params:
+    issueId: number - A törlendő issue Id-ja
+  returns:
+    200 - Sikerült törölni az issuet
+    404 - Nem létezik a törlendő issue
+    403 - Nincs jog az adott issue törléséhez
+
+
+
+Message
 {
   "messageId": 1,
-  "creator": "John Doe",
+  "creatorId": 1,
   "creationDate": "2021-09-01T12:30:00",
   "text": "Lorem ipsum"
 }
 
-GET /issues/:issueId/messages - Egy issuehoz tartozó üzenetek lekérdezése
+GET /issues/:issueId/messages - Issuehoz tartozó üzenetek lekérdezése
   params:
-    issueId: number - az adott issue azonosítója
+    issueId: number - A lekérdezendő üzenetek issueja
   returns:
     200: Message[] - Az issuehoz tartozó üzenetek
-    404 - Nincs ilyen issue
-POST /issues/:issueId/messages - Egy issuehoz üzenet létrehozása
+    403 - A felhasználó nem férhet hozzá ehhez az issuehoz
+
+POST /issues/:issueId/messages - Issuehoz üzenet létrehozása
   params:
-    issueId: number - az adott issue azonosítója
-    Message
+    issueId: number - Az issue id-ja, amihez az üzenetet létre akarom hozni
   returns:
     200: Message - A létrehozott üzenet
-    404 - Nincs ilyen issue
+    403 - A felhasználó nem férhet hozzá ehhez az issuehoz
 
-// TODO: Labels, Places
+Label
+{
+  "labelId": 1,
+  "text": "Rossz projektor"
+}
+
+GET /labels
+POST /labels
+GET /labels/:labelId
+DELETE /labels/:labelId
+
+// TODO: helyek
