@@ -10,6 +10,7 @@ nest g s issues
 nest g co issues
 ```
 
++ Create REST endpoints
 + Create Entity
 + Create DTOs
 
