@@ -1,29 +1,29 @@
+import { EntityRepository } from '@mikro-orm/core';
+import { InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 import { IssueDto } from './dto/issue.dto';
 import { Issue } from './entities/issue';
 
 @Injectable()
 export class IssuesService {
-  private _issues: Issue[] = [];
-  private _nextId = 1;
+  constructor(
+    @InjectRepository(Issue)
+    private issueRepository: EntityRepository<Issue>,
+  ) {}
 
-  findAll(issueDto?: IssueDto): Issue[] {
-    return this._issues.filter((issue) =>
-      issue.title.includes(issueDto.title || ''),
-    );
+  async findAll(issueDto?: IssueDto): Promise<Issue[]> {
+    return await this.issueRepository.find(issueDto);
   }
 
-  findOne(id: number): Issue {
-    return this._issues.find((issue) => issue.id === id);
+  async findOne(id: number): Promise<Issue> {
+    return await this.issueRepository.findOne({ id });
   }
 
-  create(issueDto: IssueDto): Issue {
+  async create(issueDto: IssueDto): Promise<Issue> {
     const issue = new Issue();
-    issue.id = this._nextId;
-    this._nextId += 1;
     issue.title = issueDto.title;
 
-    this._issues.push(issue);
+    await this.issueRepository.persistAndFlush(issue);
 
     return issue;
   }

@@ -18,13 +18,13 @@ export class IssuesController {
   constructor(private _issuesService: IssuesService) {}
 
   @Get()
-  findAll(@Query() issueDto: IssueDto): IssueDto[] {
-    return this._issuesService.findAll(issueDto);
+  async findAll(@Query() issueDto: IssueDto): Promise<IssueDto[]> {
+    return await this._issuesService.findAll(issueDto);
   }
 
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number): IssueDto {
-    const issue = this._issuesService.findOne(id);
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<IssueDto> {
+    const issue = await this._issuesService.findOne(id);
 
     if (!issue) {
       throw new HttpException('Issue not found', HttpStatus.NOT_FOUND);
@@ -34,8 +34,8 @@ export class IssuesController {
   }
 
   @Post()
-  create(@Body() issueDto: IssueDto): IssueDto {
-    const newIssue = this._issuesService.create(issueDto);
+  async create(@Body() issueDto: IssueDto): Promise<IssueDto> {
+    const newIssue = await this._issuesService.create(issueDto);
     return this.createIssueDto(newIssue);
   }
 
