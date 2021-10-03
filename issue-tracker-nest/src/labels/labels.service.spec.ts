@@ -1,22 +1,20 @@
 import { getRepositoryToken } from '@mikro-orm/nestjs';
 import { Test, TestingModule } from '@nestjs/testing';
-import { Label } from '../labels/entities/label';
-import { Issue } from './entities/issue';
-import { IssuesService } from './issues.service';
+import { Label } from './entities/label';
+import { LabelsService } from './labels.service';
 
-describe('IssuesService', () => {
-  let service: IssuesService;
+describe('LabelsService', () => {
+  let service: LabelsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        IssuesService,
-        { provide: getRepositoryToken(Issue), useValue: {} },
+        LabelsService,
         { provide: getRepositoryToken(Label), useValue: {} },
       ],
     }).compile();
 
-    service = module.get<IssuesService>(IssuesService);
+    service = module.get<LabelsService>(LabelsService);
   });
 
   it('should be defined', () => {
