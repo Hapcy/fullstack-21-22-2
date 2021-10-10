@@ -1,3 +1,5 @@
+```git checkout auth```
+
 # Authentikáció, authorizáció
 
 - User modul bevezetése
