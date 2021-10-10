@@ -7,6 +7,7 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
+import { AllowAnonymous } from '../auth/allow-anonymous';
 import { AuthService } from '../auth/auth.service';
 import { LocalAuthGuard } from '../auth/local-auth.guard';
 import { UserParam } from '../auth/user-param.decorator';
@@ -22,6 +23,7 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
+  @AllowAnonymous()
   @Post()
   async create(@Body() userAuthDto: UserAuthDto) {
     try {
@@ -39,6 +41,7 @@ export class UsersController {
     }
   }
 
+  @AllowAnonymous()
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@UserParam() user: UserDto) {

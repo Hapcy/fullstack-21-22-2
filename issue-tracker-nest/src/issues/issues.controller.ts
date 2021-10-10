@@ -10,6 +10,8 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { Roles } from '../auth/roles';
+import { UserRole } from '../users/entities/user';
 import { IssueDto } from './dto/issue.dto';
 import { MessageDto } from './dto/message.dto';
 import { IssuesService } from './issues.service';

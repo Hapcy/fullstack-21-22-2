@@ -11,4 +11,5 @@
   - npm install --save-dev @types/passport-local @types/passport-jwt
   - getUserByUserNameAndPassword, LocalStrategy, LocalGuard, User (paramDecorator)
   - JwtModule, generateJwt, JwtStrategy, JwtAuthGuard
-  - Global guard, public végpontok
+  - Global guard, public végpontok (AllowAnonymous)
+  - Roles decorator, roles guard
