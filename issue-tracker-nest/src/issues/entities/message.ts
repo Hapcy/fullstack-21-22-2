@@ -1,4 +1,5 @@
 import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { User } from '../../users/entities/user';
 import { Issue } from './issue';
 
 @Entity()
@@ -17,4 +18,7 @@ export class Message {
 
   @ManyToOne(() => Issue)
   issue!: Issue;
+
+  @ManyToOne(() => User)
+  user!: User;
 }

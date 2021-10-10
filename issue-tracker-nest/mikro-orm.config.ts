@@ -2,9 +2,10 @@ import { IDatabaseDriver, Options } from '@mikro-orm/core';
 import { Message } from './src/issues/entities/message';
 import { Label } from './src/labels/entities/label';
 import { Issue } from './src/issues/entities/issue';
+import { User } from './src/users/entities/user';
 
 export default {
-  entities: [Issue, Label, Message],
+  entities: [Issue, Label, Message, User],
   dbName: 'issue-tracker.sqlite3',
   type: 'sqlite',
   migrations: {

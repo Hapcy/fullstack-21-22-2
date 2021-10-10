@@ -1,4 +1,6 @@
 import { LabelDto } from '../../labels/dto/label.dto';
+import { UserDto } from '../../users/dto/user.dto';
+import { User } from '../../users/entities/user';
 import { Issue, IssueStatus } from '../entities/issue';
 import { MessageDto } from './message.dto';
 
@@ -12,6 +14,7 @@ export class IssueDto {
   modifiedAt?: Date;
   messages?: MessageDto[];
   labels?: LabelDto[];
+  user?: UserDto;
 
   constructor(issue: Issue) {
     this.id = issue.id;
@@ -28,6 +31,9 @@ export class IssueDto {
     }
     if (issue.labels.isInitialized(true)) {
       this.labels = issue.labels.getItems().map((label) => new LabelDto(label));
+    }
+    if (issue.user && issue.user instanceof User) {
+      this.user = new UserDto(issue.user);
     }
   }
 }
