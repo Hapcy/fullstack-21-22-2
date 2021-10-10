@@ -9,4 +9,6 @@
   - Auth modul, service létrehozása
   - npm install --save @nestjs/passport passport passport-local @nestjs/jwt passport-jwt
   - npm install --save-dev @types/passport-local @types/passport-jwt
-
+  - getUserByUserNameAndPassword, LocalStrategy, LocalGuard, User (paramDecorator)
+  - JwtModule, generateJwt, JwtStrategy, JwtAuthGuard
+  - Global guard, public végpontok
