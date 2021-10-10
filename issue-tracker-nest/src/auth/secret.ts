@@ -1,3 +1,1 @@
-import process from 'process';
-
-export const secret = 'secret' || process.env.jwtSecret;
+export const secret = process.env.jwtSecret || 'secret';
