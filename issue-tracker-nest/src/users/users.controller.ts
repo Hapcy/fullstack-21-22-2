@@ -13,7 +13,6 @@ import { LocalAuthGuard } from '../auth/local-auth.guard';
 import { UserParam } from '../auth/user-param.decorator';
 import { UserAuthDto } from './dto/user-auth.dto';
 import { UserDto } from './dto/user.dto';
-import { User } from './entities/user';
 import { UsersService } from './users.service';
 
 @Controller('users')

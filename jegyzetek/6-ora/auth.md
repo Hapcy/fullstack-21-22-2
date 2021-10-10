@@ -13,3 +13,4 @@
   - JwtModule, generateJwt, JwtStrategy, JwtAuthGuard
   - Global guard, public végpontok (AllowAnonymous)
   - Roles decorator, roles guard
+- User kezelés bevezetése
