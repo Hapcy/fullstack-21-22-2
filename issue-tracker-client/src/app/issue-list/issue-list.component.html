@@ -1,0 +1,20 @@
+<h1>Issue list</h1>
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Bad UTP Port</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>UTP Port doesn't work</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Bad Mouse</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>Mouse doesn't work</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="button-container">
+  <a mat-raised-button [routerLink]="['/', 'issue-editor']">Create issue</a>
+</div>

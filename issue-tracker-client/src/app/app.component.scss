@@ -1,0 +1,24 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+mat-sidenav {
+  width: 240px;
+}
+
+main {
+  margin: 20px 20px 0;
+}
+
+a.active {
+  color: purple;
+}
