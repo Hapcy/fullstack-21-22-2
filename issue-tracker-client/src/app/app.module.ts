@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssueEditorComponent } from './issue-editor/issue-editor.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, IssueListComponent, IssueEditorComponent],
@@ -29,6 +30,7 @@ import { IssueEditorComponent } from './issue-editor/issue-editor.component';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

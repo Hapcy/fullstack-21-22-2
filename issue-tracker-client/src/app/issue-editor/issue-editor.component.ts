@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Issue } from '../core/issue';
 
 @Component({
   selector: 'app-issue-editor',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IssueEditorComponent implements OnInit {
 
+  issue: Issue = {
+    title: '',
+    description: '',
+  };
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  submit() {
+    console.log(this.issue);
   }
 
 }

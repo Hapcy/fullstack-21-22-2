@@ -1,13 +1,23 @@
 <h1>Edit issue</h1>
 
-<form>
+<form (ngSubmit)="submit()">
   <mat-form-field appearance="outline">
     <mat-label>Title</mat-label>
-    <input matInput placeholder="Bad mouse" />
+    <input
+      [(ngModel)]="issue.title"
+      name="title"
+      matInput
+      placeholder="Bad mouse"
+    />
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Description</mat-label>
-    <textarea matInput placeholder="Bad mouse"></textarea>
+    <textarea
+      [(ngModel)]="issue.description"
+      name="description"
+      matInput
+      placeholder="Bad mouse"
+    ></textarea>
   </mat-form-field>
   <div>
     <button mat-raised-button color="primary">Save</button>
