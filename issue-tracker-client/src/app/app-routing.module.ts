@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IssueEditorComponent } from './issue-editor/issue-editor.component';
+import { IssueDetailsComponent } from './issue-details/issue-details.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 
 const routes: Routes = [
   {
-    path: 'issue-list',
+    path: 'issues',
     component: IssueListComponent,
   },
   {
-    path: 'issue-editor',
-    component: IssueEditorComponent,
+    path: 'issues/:issueId',
+    component: IssueDetailsComponent,
   },
   {
     path: '**',
-    redirectTo: 'issue-list',
+    redirectTo: 'issues',
   },
 ];
 

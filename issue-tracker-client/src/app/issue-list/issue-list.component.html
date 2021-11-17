@@ -1,16 +1,20 @@
 <h1>Issue list</h1>
 
-<mat-accordion>
+<mat-accordion *ngIf="issues">
   <mat-expansion-panel *ngFor="let issue of issues" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span>{{ issue.title }}</span>
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <p>{{ issue.description }}</p>
+    <app-issue-summary
+      [issue]="issue"
+      [showButtons]="true"
+      (editIssue)="onEditIssue(issue)"
+    ></app-issue-summary>
   </mat-expansion-panel>
 </mat-accordion>
 
 <div class="button-container">
-  <a mat-raised-button [routerLink]="['/', 'issue-editor']">Create issue</a>
+  <button mat-raised-button (click)="onCreateIssue()">Create issue</button>
 </div>

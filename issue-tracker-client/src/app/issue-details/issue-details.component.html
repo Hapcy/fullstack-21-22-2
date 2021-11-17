@@ -1,0 +1,12 @@
+<ng-container *ngIf="issue; else issueMissing">
+  <h1>{{ issue.title }} - {{ issue.user }}</h1>
+  <div>
+    <p>Description: {{ issue.description }}</p>
+  </div>
+  <div>
+    <p>Place: {{ issue.place }}</p>
+  </div>
+</ng-container>
+<ng-template #issueMissing>
+  <h1>Issue does not exist.</h1>
+</ng-template>

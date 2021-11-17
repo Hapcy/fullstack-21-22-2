@@ -12,12 +12,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssueEditorComponent } from './issue-editor/issue-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IssueSummaryComponent } from './issue-summary/issue-summary.component';
+import { IssueDetailsComponent } from './issue-details/issue-details.component';
 
 @NgModule({
-  declarations: [AppComponent, IssueListComponent, IssueEditorComponent],
+  declarations: [AppComponent, IssueListComponent, IssueEditorComponent, IssueSummaryComponent, IssueDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

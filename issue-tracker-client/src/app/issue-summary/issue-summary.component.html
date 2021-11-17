@@ -1,0 +1,24 @@
+<div>
+  <p>Title: {{ issue.title }}</p>
+</div>
+<div>
+  <p>Description: {{ issue.description }}</p>
+</div>
+<div>
+  <p>Creator: {{ issue.user }}</p>
+</div>
+<div>
+  <p>Place: {{ issue.place }}</p>
+</div>
+<div *ngIf="showButtons" class="buttons">
+  <a
+    [routerLink]="['/', 'issues', issue.id]"
+    mat-raised-button
+    color="primary"
+  >
+    Show details
+  </a>
+  <button (click)="edit()" mat-raised-button color="secondary">
+    Edit issue
+  </button>
+</div>
