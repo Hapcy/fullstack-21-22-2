@@ -1,6 +1,6 @@
 <h1>Edit issue</h1>
 
-<form (ngSubmit)="submit()">
+<form #issueForm="ngForm" (ngSubmit)="submit(issueForm)">
   <mat-form-field appearance="outline">
     <mat-label>Title</mat-label>
     <input
@@ -8,7 +8,14 @@
       name="title"
       matInput
       placeholder="Bad mouse"
+      required
+      #title="ngModel"
     />
+    <mat-error *ngIf="title.invalid">
+      <span *ngIf="title.hasError('required')">
+        This field is required.
+      </span>
+    </mat-error>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Description</mat-label>
@@ -17,7 +24,10 @@
       name="description"
       matInput
       placeholder="Bad mouse"
+      required
+      #description="ngModel"
     ></textarea>
+    <mat-error *ngIf="description.invalid">This field is required.</mat-error>
   </mat-form-field>
   <div>
     <button mat-raised-button color="primary">Save</button>
