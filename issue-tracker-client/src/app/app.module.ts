@@ -18,10 +18,19 @@ import { IssueEditorComponent } from './issue-editor/issue-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IssueSummaryComponent } from './issue-summary/issue-summary.component';
 import { IssueDetailsComponent } from './issue-details/issue-details.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './core/auth.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, IssueListComponent, IssueEditorComponent, IssueSummaryComponent, IssueDetailsComponent],
+  declarations: [
+    AppComponent,
+    IssueListComponent,
+    IssueEditorComponent,
+    IssueSummaryComponent,
+    IssueDetailsComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,7 +48,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

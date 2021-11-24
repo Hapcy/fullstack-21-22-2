@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Issue } from '../core/issue';
-import { IssueService } from '../issue.service';
+import { IssueService } from '../core/issue.service';
 
 @Component({
   selector: 'app-issue-details',

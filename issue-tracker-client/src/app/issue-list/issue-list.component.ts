@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Issue } from '../core/issue';
+import { IssueService } from '../core/issue.service';
 import { IssueEditorComponent } from '../issue-editor/issue-editor.component';
-import { IssueService } from '../issue.service';
 
 @Component({
   selector: 'app-issue-list',
