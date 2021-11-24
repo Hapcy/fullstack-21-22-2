@@ -18,6 +18,7 @@ import { IssueEditorComponent } from './issue-editor/issue-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IssueSummaryComponent } from './issue-summary/issue-summary.component';
 import { IssueDetailsComponent } from './issue-details/issue-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, IssueListComponent, IssueEditorComponent, IssueSummaryComponent, IssueDetailsComponent],
@@ -36,6 +37,7 @@ import { IssueDetailsComponent } from './issue-details/issue-details.component';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

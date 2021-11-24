@@ -18,24 +18,26 @@ export class IssueListComponent implements OnInit {
     this.issues = await this.issueService.getIssues();
   }
 
-  onEditIssue(issue: Issue) {
+  async onEditIssue(issue: Issue) {
     const dialogRef = this.dialog.open(IssueEditorComponent, {
       width: '500px',
       data: issue,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.issueService.editIssue(issue.id, result);
-    });
+    const result: Issue = await dialogRef.afterClosed().toPromise();
+    const editedIssue = await this.issueService.editIssue(issue.id!, result);
+
+    this.issues?.splice(this.issues.indexOf(issue), 1, editedIssue);
   }
 
-  onCreateIssue() {
+  async onCreateIssue() {
     const dialogRef = this.dialog.open(IssueEditorComponent, {
       width: '500px',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.issueService.createIssue(result);
-    });
+    const result: Issue = await dialogRef.afterClosed().toPromise();
+    const createdIssue = await this.issueService.createIssue(result);
+
+    this.issues!.push(createdIssue);
   }
 }

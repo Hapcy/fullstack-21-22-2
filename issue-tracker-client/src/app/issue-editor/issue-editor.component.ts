@@ -17,11 +17,16 @@ import { Issue } from '../core/issue';
 export class IssueEditorComponent implements OnInit {
   issueForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
+    place: ['', Validators.required],
     description: ['', Validators.required],
   });
 
   get title(): FormControl {
     return this.issueForm.get('title') as FormControl;
+  }
+
+  get place(): FormControl {
+    return this.issueForm.get('place') as FormControl;
   }
 
   get description(): FormControl {

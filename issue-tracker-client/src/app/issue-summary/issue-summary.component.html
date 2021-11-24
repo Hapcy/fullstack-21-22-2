@@ -5,7 +5,7 @@
   <p>Description: {{ issue.description }}</p>
 </div>
 <div>
-  <p>Creator: {{ issue.user }}</p>
+  <p>Creator: {{ issue.user!.name }}</p>
 </div>
 <div>
   <p>Place: {{ issue.place }}</p>

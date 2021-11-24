@@ -1,10 +1,35 @@
 <ng-container *ngIf="issue; else issueMissing">
-  <h1>{{ issue.title }} - {{ issue.user }}</h1>
+  <h1>{{ issue.title }} - {{ issue.user!.name }}</h1>
   <div>
     <p>Description: {{ issue.description }}</p>
   </div>
   <div>
     <p>Place: {{ issue.place }}</p>
+  </div>
+  <div>
+    <h2>Messages</h2>
+    <ng-container *ngIf="issue.messages && issue.messages.length !== 0">
+      <div class="message" *ngFor="let message of issue.messages">
+        <div class="message-author">{{ message.user!.name }}</div>
+        <p>{{ message.text }}</p>
+      </div>
+    </ng-container>
+    <p *ngIf="!issue.messages || issue.messages.length === 0">
+      No messages yet.
+    </p>
+    <form (submit)="addMessage()">
+      <mat-form-field appearance="fill">
+        <mat-label>Message</mat-label>
+        <textarea
+          required
+          matInput
+          name="message"
+          [formControl]="message"
+        ></textarea>
+        <mat-error *ngIf="message.invalid">This field is required.</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Send message</button>
+    </form>
   </div>
 </ng-container>
 <ng-template #issueMissing>

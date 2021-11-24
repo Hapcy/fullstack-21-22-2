@@ -76,7 +76,7 @@ export class IssuesService {
     }
 
     await this.issueRepository.persistAndFlush(issue);
-    await issue.labels.init();
+    await this.issueRepository.populate(issue, ['labels', 'user']);
 
     return issue;
   }
