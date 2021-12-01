@@ -21,6 +21,7 @@ import { IssueDetailsComponent } from './issue-details/issue-details.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './core/auth.interceptor';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthInterceptor } from './core/auth.interceptor';
     IssueSummaryComponent,
     IssueDetailsComponent,
     LoginComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,

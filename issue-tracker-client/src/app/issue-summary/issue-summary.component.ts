@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Issue } from '../core/issue';
+import { UserService } from '../core/user.service';
 
 @Component({
   selector: 'app-issue-summary',
@@ -12,7 +13,7 @@ export class IssueSummaryComponent implements OnInit {
 
   @Output() editIssue: EventEmitter<void> = new EventEmitter();
 
-  constructor() {}
+  constructor(public userService: UserService) {}
 
   ngOnInit(): void {}
 

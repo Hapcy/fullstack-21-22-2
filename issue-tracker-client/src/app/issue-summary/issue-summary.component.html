@@ -18,7 +18,7 @@
   >
     Show details
   </a>
-  <button (click)="edit()" mat-raised-button color="secondary">
+  <button *ngIf="userService.isAdmin" (click)="edit()" mat-raised-button color="secondary">
     Edit issue
   </button>
 </div>

@@ -38,7 +38,7 @@ export class IssuesService {
       filters.user = { id: user.id };
     }
     return await this.issueRepository.findOne(filters, {
-      populate: ['labels', 'messages', 'user'],
+      populate: ['labels', 'messages', 'user', 'messages.user'],
     });
   }
 
