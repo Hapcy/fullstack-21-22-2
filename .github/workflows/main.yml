@@ -25,10 +25,51 @@ jobs:
         run: npm test
       - name: Run e2e tests
         run: npm run test:e2e
+  backend-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: issue-tracker-nest
+    concurrency: heroku-deploy
+    needs: backend
+    steps:
+      - uses: actions/checkout@v2
       - name: Build and deploy on Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           appdir: issue-tracker-nest
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: fullstack-21-22-2-ts
+          heroku_email: tibor.moger@gmail.com
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: issue-tracker-client
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache-dependency-path: issue-tracker-client/package-lock.json
+      - name: Install dependencies
+        run: npm i
+      - name: Run tests
+        run: npm run test:ci
+  frontend-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: issue-tracker-client
+    concurrency: heroku-deploy
+    needs: frontend
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and deploy on Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          appdir: issue-tracker-client
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: fullstack-21-22-2-client
           heroku_email: tibor.moger@gmail.com
