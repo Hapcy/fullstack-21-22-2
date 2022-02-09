@@ -24,7 +24,7 @@ Full-stack alkalmazás fejlesztése
 - http://webprogramozas.inf.elte.hu/#!/subjects/full-stack
 - Gyakorlatokon való részvétel
 - Félév során nagy beadandó elkészítése
-  - Kétfős csoportokban kell elkészíteni
+  - Kétfős csoportokban kell elkészíteni. Ha valakinek nincs párja, akkor egyedül is dolgozhat.
   - Mérföldkövek - az 1. és a 4. fontos
     - 4. hétig csoportok kialakítása, projektötlet elkészítése
     - 8. hétig adatbázis + backend kialakítása + dokumentáció (őszi szünet végéig)
@@ -33,9 +33,9 @@ Full-stack alkalmazás fejlesztése
   - Konkrét backend technológiát szabadon lehet választani
   - Frontenden Angulart kell használni
 
-# Hibrid oktatás (terv)
+# Online oktatás
 
-- Anyagrészeket feldolgozó videók + hozzá néhány kérdéses ellenőrző kérdőív, hogy megnéztétek-e.
+- Anyagrészeket feldolgozó videók.
 - Ezeket meg lehet nézni az órán vagy az óra előtt.
 - Kérdéseket fel lehet tenni elsősorban írásban, és óra idejében fogok válaszolni.
 - Ha az időbe belefér, akkor lesz órai feladat is. A videókon elkészülő alkalmazás kiegészítése.
