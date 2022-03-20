@@ -5,8 +5,11 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "npx rimraf dist",
     "build": "nest build",
     "heroku-postbuild": "npm run build && npm run migrate:prod",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
