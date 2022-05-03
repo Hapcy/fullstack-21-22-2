@@ -1,5 +1,5 @@
 <div>
-  <p>Title: {{ issue.title }}</p>
+  <p id="title">Title: {{ issue.title }}</p>
 </div>
 <div>
   <p>Description: {{ issue.description }}</p>
@@ -18,7 +18,7 @@
   >
     Show details
   </a>
-  <button *ngIf="userService.isAdmin" (click)="edit()" mat-raised-button color="secondary">
+  <button *ngIf="userService.isAdmin" id="edit-issue" (click)="edit()" mat-raised-button color="secondary">
     Edit issue
   </button>
 </div>
